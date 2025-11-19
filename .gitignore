@@ -1,0 +1,43 @@
+# Virtual Environments
+venv/
+venv_gradio/
+env/
+ENV/
+
+# Model files
+models/
+*.pt
+*.pth
+*.safetensors
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TextAttack cache
+.cache/
+word_embeddings/
+
+# Logs
+*.log
