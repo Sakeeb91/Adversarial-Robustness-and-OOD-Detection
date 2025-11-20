@@ -2,11 +2,14 @@ import torch
 from textattack.attack_recipes import DeepWordBugGao2018
 from textattack.models.wrappers import HuggingFaceModelWrapper
 from textattack.datasets import HuggingFaceDataset
-from src.model import load_trained_model
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 class AdversarialAttacker:
-    def __init__(self, model_path='./models/base_model'):
-        self.model, self.tokenizer = load_trained_model(model_path)
+    def __init__(self, model_name='textattack/distilbert-base-uncased-ag-news'):
+        """Initialize with a Hugging Face model name or local path"""
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.model = AutoModelForSequenceClassification.from_pretrained(model_name)
+        self.model.eval()
         self.model_wrapper = HuggingFaceModelWrapper(self.model, self.tokenizer)
         self.attack = DeepWordBugGao2018.build(self.model_wrapper)
 

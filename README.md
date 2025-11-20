@@ -6,6 +6,12 @@ A production-grade demonstration of trust and safety mechanisms for AI models. T
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-red?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)
 
+## 🚀 Live Demo
+
+**Try it now:** [AI Trust & Safety Demo on Hugging Face Spaces](https://huggingface.co/spaces/Sakeeb/ai-trust-safety-demo)
+
+Interact with the system directly in your browser - no installation required!
+
 ## Overview
 
 Deploying machine learning models safely requires more than just high accuracy. This project implements two critical safety layers:
@@ -43,28 +49,37 @@ Ensure you have Python 3.9 or higher installed.
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd ood-detection
+git clone https://github.com/Sakeeb91/Adversarial-Robustness-and-OOD-Detection.git
+cd Adversarial-Robustness-and-OOD-Detection
 
 # Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv venv_gradio
+source venv_gradio/bin/activate
 
 # Install dependencies
-pip install -r requirements.txt
+pip install torch transformers textattack gradio datasets numpy scikit-learn
 ```
+
+> **Note**: The system uses the pre-trained model `textattack/distilbert-base-uncased-ag-news` from Hugging Face Hub, which will be automatically downloaded on first run.
 
 ## Usage
 
-### Web Interface (Gradio)
-Launch the interactive web UI to visualize OOD detection and attacks.
+### 🌐 Online Demo (Recommended)
+The easiest way to try the system is through the **[live Hugging Face Space](https://huggingface.co/spaces/Sakeeb/ai-trust-safety-demo)**.
+
+### 💻 Local Web Interface (Gradio)
+Launch the interactive web UI locally to visualize OOD detection and attacks.
 
 ```bash
-# Use the compatible environment
+# Activate environment
 source venv_gradio/bin/activate
 export PYTHONPATH=$PYTHONPATH:.
-python src/gradio_app.py
+
+# Run the Gradio app
+python app.py
 ```
+
+Access at: http://127.0.0.1:7860
 
 ### Interactive Demo (CLI)
 Launch the Command Line Interface (CLI) to interact with the system in real-time.
@@ -103,7 +118,52 @@ python verify_system.py
 
 ## Technology Stack
 
-*   **Model**: Hugging Face Transformers (DistilBERT)
-*   **Framework**: PyTorch
-*   **Adversarial Tools**: TextAttack
-*   **Data**: AG News (ID), IMDB (OOD)
+*   **Model**: `textattack/distilbert-base-uncased-ag-news` (94.8% accuracy)
+*   **Framework**: PyTorch + Hugging Face Transformers
+*   **Adversarial Tools**: TextAttack (DeepWordBug)
+*   **Interface**: Gradio
+*   **Training Data**: AG News (World, Sports, Business, Sci/Tech)
+*   **OOD Test Data**: IMDB (Movie Reviews)
+
+## Deployment
+
+This project is deployed on **Hugging Face Spaces** for global accessibility:
+
+🔗 **Live Demo**: https://huggingface.co/spaces/Sakeeb/ai-trust-safety-demo
+
+The deployment uses a lightweight architecture (72KB) by loading the pre-trained model directly from Hugging Face Hub, eliminating the need to include large model files in the repository.
+
+## Model Details
+
+The system uses a fine-tuned DistilBERT model specifically trained for AG News classification:
+
+- **Model ID**: `textattack/distilbert-base-uncased-ag-news`
+- **Source**: Hugging Face Model Hub
+- **Accuracy**: 94.8% on AG News test set
+- **Classes**: 4 (World, Sports, Business, Sci/Tech)
+- **Parameters**: ~67M
+- **Size**: ~255MB
+
+## Contributing
+
+Contributions are welcome! Feel free to:
+- Report bugs or issues
+- Suggest new features or improvements
+- Submit pull requests
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Citation
+
+If you use this project in your research or work, please cite:
+
+```bibtex
+@software{adversarial_ood_detection,
+  author = {Sakeeb},
+  title = {Adversarial Robustness and OOD Detection},
+  year = {2025},
+  url = {https://github.com/Sakeeb91/Adversarial-Robustness-and-OOD-Detection}
+}
+```

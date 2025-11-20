@@ -1,0 +1,7 @@
+torch
+transformers
+textattack
+gradio
+datasets
+numpy
+scikit-learn
