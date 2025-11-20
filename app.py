@@ -65,8 +65,45 @@ def analyze_text(text, threshold=0.5):
     
     return ood_info, adv_text, adv_status, f"Threshold: {threshold}"
 
-# Create Gradio Interface
-with gr.Blocks(theme=gr.themes.Soft()) as demo:
+# Create Gradio Interface with Cybersecurity Dark Theme
+theme = gr.themes.Base(
+    primary_hue="cyan",
+    secondary_hue="slate",
+    neutral_hue="slate",
+    font=gr.themes.GoogleFont("Inter"),
+).set(
+    body_background_fill="#0f172a",
+    body_background_fill_dark="#0f172a",
+    block_background_fill="#1e293b",
+    block_background_fill_dark="#1e293b",
+    block_border_width="1px",
+    block_border_color="#334155",
+    input_background_fill="#1e293b",
+    input_background_fill_dark="#1e293b",
+    input_border_color="#475569",
+    button_primary_background_fill="#06b6d4",
+    button_primary_background_fill_hover="#0891b2",
+    button_primary_text_color="#ffffff",
+    block_label_text_color="#e2e8f0",
+    block_title_text_color="#f1f5f9",
+    body_text_color="#cbd5e1",
+    body_text_color_subdued="#94a3b8",
+)
+
+with gr.Blocks(theme=theme, css="""
+    .gradio-container {
+        font-family: 'Inter', sans-serif;
+    }
+    h1 {
+        color: #f1f5f9 !important;
+        font-weight: 700;
+    }
+    .contain {
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 8px;
+    }
+""") as demo:
     gr.Markdown("""
     # 🛡️ AI Trust & Safety Demo
     
