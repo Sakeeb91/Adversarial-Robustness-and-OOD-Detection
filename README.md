@@ -4,6 +4,7 @@ A production-grade demonstration of trust and safety mechanisms for AI models. T
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-red?style=flat-square)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-yellow?style=flat-square)](https://huggingface.co/spaces/Sakeeb/ai-trust-safety-demo)
 ![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)
 
 ## 🚀 Live Demo
