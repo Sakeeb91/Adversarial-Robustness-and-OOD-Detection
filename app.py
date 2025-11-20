@@ -78,16 +78,17 @@ theme = gr.themes.Base(
     block_background_fill_dark="#1e293b",
     block_border_width="1px",
     block_border_color="#334155",
-    input_background_fill="#1e293b",
-    input_background_fill_dark="#1e293b",
+    input_background_fill="#0f172a",
+    input_background_fill_dark="#0f172a",
     input_border_color="#475569",
+    input_border_width="1px",
     button_primary_background_fill="#06b6d4",
     button_primary_background_fill_hover="#0891b2",
     button_primary_text_color="#ffffff",
-    block_label_text_color="#e2e8f0",
-    block_title_text_color="#f1f5f9",
-    body_text_color="#cbd5e1",
-    body_text_color_subdued="#94a3b8",
+    block_label_text_color="#f1f5f9",
+    block_title_text_color="#ffffff",
+    body_text_color="#e2e8f0",
+    body_text_color_subdued="#cbd5e1",
 )
 
 with gr.Blocks(theme=theme, css="""
@@ -95,13 +96,38 @@ with gr.Blocks(theme=theme, css="""
         font-family: 'Inter', sans-serif;
     }
     h1 {
-        color: #f1f5f9 !important;
+        color: #ffffff !important;
         font-weight: 700;
+    }
+    h2 {
+        color: #f1f5f9 !important;
     }
     .contain {
         background: #1e293b;
         border: 1px solid #334155;
         border-radius: 8px;
+    }
+    /* Fix input text visibility */
+    input, textarea {
+        color: #f1f5f9 !important;
+        background: #0f172a !important;
+    }
+    /* Fix example text visibility */
+    .examples table td {
+        color: #e2e8f0 !important;
+        background: #1e293b !important;
+    }
+    .examples table th {
+        color: #f1f5f9 !important;
+        background: #334155 !important;
+    }
+    /* Fix label text */
+    label {
+        color: #f1f5f9 !important;
+    }
+    /* Fix output text boxes */
+    .output-class {
+        color: #e2e8f0 !important;
     }
 """) as demo:
     gr.Markdown("""
